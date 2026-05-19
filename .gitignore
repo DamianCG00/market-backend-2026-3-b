@@ -25,6 +25,8 @@ application-local.properties
 .settings
 .springBeans
 .sts4-cache
+application-dev.properties
+application-pdn.properties
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
