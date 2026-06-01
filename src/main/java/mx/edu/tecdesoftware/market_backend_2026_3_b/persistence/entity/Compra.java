@@ -1,9 +1,6 @@
 package mx.edu.tecdesoftware.market_backend_2026_3_b.persistence.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -23,6 +20,12 @@ public class Compra {
     private String medioPago;
     private String comentario;
     private String estado;
+
+
+    //Relacion con cliente: Muchas compras para un cliente
+    @ManyToOne
+    @JoinColumn(name = "id:cliente", insertable = false, updatable = false)
+    private Cliente cliente;
 
 
     public Integer getIdCompra() {
