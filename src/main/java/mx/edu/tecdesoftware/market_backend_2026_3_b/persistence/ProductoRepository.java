@@ -8,10 +8,8 @@ import mx.edu.tecdesoftware.market_backend_2026_3_b.persistence.crud.IProductoCr
 import mx.edu.tecdesoftware.market_backend_2026_3_b.persistence.entity.Producto;
 import mx.edu.tecdesoftware.market_backend_2026_3_b.persistence.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 @Repository
 //Le da acceso a la Base de Datos (BD)
@@ -41,7 +39,7 @@ public class ProductoRepository implements ProductRepository {
         return Optional.of(productMapper.toProducts(productos.get()));
     }
     //obtener un producto dado el ID
-    //Obtener un producto dado el ID
+
     @Override
     public Optional<Product> getProduct(int productoId) {
         return productoCrudRepository.findById(productoId).map(producto -> productMapper.toProduct(producto));
@@ -50,10 +48,15 @@ public class ProductoRepository implements ProductRepository {
     //Guardar un producto
     @Override
     public Product save(Product product) {
-        // 1. Convertimos el Product (dominio) a Producto (entidad)
+
         Producto producto = productMapper.toProducto(product);
-        // 2. Lo guardamos en la BD y convertimos el resultado de vuelta a Product
+
         return productMapper.toProduct(productoCrudRepository.save(producto));
+    }
+
+    @Override
+    public void delate(int productId) {
+
     }
 
     @Override

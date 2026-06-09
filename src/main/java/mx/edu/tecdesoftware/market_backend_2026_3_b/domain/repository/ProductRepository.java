@@ -15,6 +15,5 @@ public interface ProductRepository {
     void delate (int productId);
 
 
-
-
+    void delete(int productId);
 }
