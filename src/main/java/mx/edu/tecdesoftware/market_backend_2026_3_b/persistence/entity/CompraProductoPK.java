@@ -7,15 +7,17 @@ import java.io.Serializable;
 
 public class CompraProductoPK implements Serializable {
 
-    @Column(name = "Id_compra")
+    @Column(name = "id_compra")
     private Integer idCompra;
 
-    @Column(name = "Id_producto")
+    @Column(name = "id_producto")
     private Integer IdProducto;
 
     public Integer getIdCompra() {
         return idCompra;
     }
+
+
 
     public void setIdCompra(Integer idCompra) {
         this.idCompra = idCompra;

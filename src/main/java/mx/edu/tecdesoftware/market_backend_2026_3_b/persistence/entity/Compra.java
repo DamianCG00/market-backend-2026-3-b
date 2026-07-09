@@ -1,10 +1,12 @@
 package mx.edu.tecdesoftware.market_backend_2026_3_b.persistence.entity;
 
 import jakarta.persistence.*;
-
-import java.time.LocalDate;
+import java.util.List;
 import java.time.LocalDateTime;
 
+
+@Entity
+@Table(name = "compras")
 public class Compra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +26,12 @@ public class Compra {
 
     //Relacion con cliente: Muchas compras para un cliente
     @ManyToOne
-    @JoinColumn(name = "id:cliente", insertable = false, updatable = false)
+    @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
+
     private Cliente cliente;
 
+    @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL)
+    private List<CompraProducto> productos;
 
     public Integer getIdCompra() {
         return idCompra;
@@ -76,11 +81,15 @@ public class Compra {
         this.estado = estado;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public List<CompraProducto> getProductos() {
+        return productos;
     }
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public void setProductos(List<CompraProducto> productos) {
+        this.productos = productos;
     }
 }
