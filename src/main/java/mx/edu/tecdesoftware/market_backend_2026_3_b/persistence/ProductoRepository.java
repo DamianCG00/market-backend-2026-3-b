@@ -30,8 +30,7 @@ public class ProductoRepository implements ProductRepository {
     }
     //Pbtener productos por categoria
     public Optional<List<Product>> getByCategory(int categoryId) {
-        List<Producto> productos = productoCrudRepository.findByCantidadOrderByNombreAsc(categoryId);
-        return Optional.of(productMapper.toProducts(productos));
+        List<Producto> productos = productoCrudRepository.findByIdCategoriaOrderByNombreAsc(categoryId);        return Optional.of(productMapper.toProducts(productos));
     }
     //Obtener productos escasos
     public Optional<List<Product>> getScarceProducts(int quantity){

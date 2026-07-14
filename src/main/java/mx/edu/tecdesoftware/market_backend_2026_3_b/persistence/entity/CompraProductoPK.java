@@ -1,33 +1,32 @@
 package mx.edu.tecdesoftware.market_backend_2026_3_b.persistence.entity;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
+import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
 
+@Embeddable
 public class CompraProductoPK implements Serializable {
 
     @Column(name = "id_compra")
     private Integer idCompra;
 
     @Column(name = "id_producto")
-    private Integer IdProducto;
+    private Integer idProducto;   // ← corregido a minúscula
 
     public Integer getIdCompra() {
         return idCompra;
     }
-
-
 
     public void setIdCompra(Integer idCompra) {
         this.idCompra = idCompra;
     }
 
     public Integer getIdProducto() {
-        return IdProducto;
+        return idProducto;
     }
 
     public void setIdProducto(Integer idProducto) {
-        IdProducto = idProducto;
+        this.idProducto = idProducto;
     }
 }

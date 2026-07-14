@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-import static com.sun.org.apache.xml.internal.serializer.Version.getProduct;
-
 @Service
 public class ProductService {
 

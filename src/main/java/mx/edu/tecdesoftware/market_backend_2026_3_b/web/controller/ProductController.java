@@ -18,6 +18,7 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
+    @GetMapping("/all")
     public ResponseEntity<List<Product>> findAll(){
         return ResponseEntity.ok(productService.getAllProducts());
     }
@@ -29,7 +30,7 @@ public class ProductController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/category/{category}")
+    @GetMapping("/category/{categoryId}")
     public ResponseEntity<List<Product>> getProductByCategory(@PathVariable("categoryId")int categoryId) {
         return productService.getByCategory(categoryId)
                 .map(ResponseEntity::ok)

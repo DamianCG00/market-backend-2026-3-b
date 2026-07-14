@@ -8,12 +8,10 @@ import java.util.Optional;
 
 public interface IProductoCrudRepository extends CrudRepository<Producto, Integer> {
 
-    // Cambiamos "Cantidad" por "IdCategoria" para que haga match exacto con el parámetro y el propósito
     // Esto asume que en tu entidad 'Producto' tienes un atributo llamado 'idCategoria'
     List<Producto> findByIdCategoriaOrderByNombreAsc(int idCategoria);
 
     // Esto asume que en tu entidad 'Producto' tienes atributos llamados 'cantidadStock' y 'estado'
     Optional<List<Producto>> findByCantidadStockLessThanAndEstado(int cantidadStock, boolean estado);
 
-    List<Producto> findByCantidadOrderByNombreAsc(int idCategoria);
 }
