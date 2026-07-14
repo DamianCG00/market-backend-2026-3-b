@@ -53,10 +53,7 @@ public class ProductoRepository implements ProductRepository {
         return productMapper.toProduct(productoCrudRepository.save(producto));
     }
 
-    @Override
-    public void delate(int productId) {
 
-    }
 
     @Override
     public void delete(int productId) {

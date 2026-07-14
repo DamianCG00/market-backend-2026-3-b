@@ -12,8 +12,7 @@ public interface ProductRepository {
     Optional<List<Product>> getScarceProducts(int quantity);
     Optional<Product> getProduct(int productId);
     Product save(Product product);
-    void delate (int productId);
 
-
+    // Solo dejamos el método escrito correctamente
     void delete(int productId);
 }

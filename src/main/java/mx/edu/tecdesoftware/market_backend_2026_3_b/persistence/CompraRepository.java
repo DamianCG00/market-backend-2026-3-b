@@ -40,10 +40,7 @@ public class CompraRepository implements PurchaseRepository {
     public Purchase save(Purchase purchase) {
         Compra compra = mapper.toCompra(purchase);
 
-        //Asignación correcta de la compra y del producto real a cada línea antes de guardar.
-        //Ambos son obligatorios: id_compra e id_producto son insertable=false/updatable=false
-        //en CompraProducto, así que Hibernate solo los puede escribir a partir de las
-        //entidades asociadas (@MapsId), no a partir del id embebido por sí solo.
+
         compra.getProductos().forEach(compraProducto -> {
             compraProducto.setCompra(compra);
 

@@ -44,7 +44,7 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity delate(@PathVariable ("id")int productId) {
-        return ResponseEntity.ok(productService.delate(productId));
+        return ResponseEntity.ok(productService.delete(productId));
     }
 
 

@@ -1,4 +1,5 @@
 package mx.edu.tecdesoftware.market_backend_2026_3_b.domain.service;
+
 import mx.edu.tecdesoftware.market_backend_2026_3_b.domain.Product;
 import mx.edu.tecdesoftware.market_backend_2026_3_b.domain.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import java.util.Optional;
 
 @Service
 public class ProductService {
-
 
     //con esto lo llama
     @Autowired
@@ -25,24 +25,14 @@ public class ProductService {
 
     public Product save(Product product) {return productRepository.save(product);}
 
-
-
     //verificar que existe antes de borrar
-    public boolean delate(int productId)
-    {
-        if (getProduct(productId).isPresent())
-        {
-            productRepository.delate(productId);
+    public boolean delete(int productId) {
+        if (getProduct(productId).isPresent()) {
+            productRepository.delete(productId);
             return true;
         } else {
             return false;
         }
-
-
-
     }
-
-
-
 
 }
